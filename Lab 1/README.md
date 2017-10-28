@@ -2,12 +2,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-26 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1">1. Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-27 Fri&gt;</span></span></a></li>
+<li><a href="#sec-2">2. Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-26 Thu&gt;</span></span></a></li>
 </ul>
 </div>
 </div>
 
-# Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-26 Thu&gt;</span></span><a id="sec-1" name="sec-1"></a>
+# Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-27 Fri&gt;</span></span><a id="sec-1" name="sec-1"></a>
+
+**NOTE** We need to all be there for the checkpoints
+**Checked = Done; Unchecked = To be Done**
+-   [X] Wiring of the radio module on both sides
+-   [X] Schematics (Checkpoint 1)
+-   [ ] Part B: I am almost done with the implementation of the library: RF24.cpp and nRF24L01.h
+-   [ ] Part C: Writing code in Arduino for the Radio Module(s)
+-   [ ] Part D: Writing code in Arduino for the game
+
+# Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-26 Thu&gt;</span></span><a id="sec-2" name="sec-2"></a>
 
 What we’ve done today:
 -   Headers Soldering on Arduino and Teensy
