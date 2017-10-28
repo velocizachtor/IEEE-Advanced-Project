@@ -9,7 +9,7 @@
 
 # Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-26 Thu&gt;</span></span><a id="sec-1" name="sec-1"></a>
 
-Updates on what we’ve done today:
+What we’ve done today:
 -   Headers Soldering on Arduino and Teensy
 -   Wiring of the push button (resistor and capacitance RC constant) on the Arduino side
 -   Wiring of the LED on the Teensy side
