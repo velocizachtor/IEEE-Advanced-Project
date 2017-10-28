@@ -13,7 +13,7 @@
 **NOTE** We need to all be there for the checkpoints   
   **Checked = Done; Unchecked = To be Done**
 -   [X] Wiring of the radio module on both sides
--   [X] Schematics (Checkpoint 1)
+-   [X] Schematics (Checkpoint 1) (We still need to all be there for this)
 -   [ ] Part B: I am almost done with the implementation of the library: RF24.cpp and nRF24L01.h
 -   [ ] Part C: Writing code in Arduino for the Radio Module(s)
 -   [ ] Part D: Writing code in Arduino for the game
