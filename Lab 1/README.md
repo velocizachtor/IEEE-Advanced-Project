@@ -10,8 +10,8 @@
 
 # Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-27 Fri&gt;</span></span><a id="sec-1" name="sec-1"></a>
 
-**NOTE** We need to all be there for the checkpoints
-**Checked = Done; Unchecked = To be Done**
+**NOTE** We need to all be there for the checkpoints   
+  **Checked = Done; Unchecked = To be Done**
 -   [X] Wiring of the radio module on both sides
 -   [X] Schematics (Checkpoint 1)
 -   [ ] Part B: I am almost done with the implementation of the library: RF24.cpp and nRF24L01.h
