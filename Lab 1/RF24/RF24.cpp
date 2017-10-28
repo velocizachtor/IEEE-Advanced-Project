@@ -78,8 +78,21 @@ void RF24::setPALevel(uint8_t level)
   // TODO: START HERE
   // set the power level bits in the RF_SETUP register based on the level parameter.
   // level can be RF24_PA_MIN, RF24_PA_LOW, RF24_PA_HIGH, or RF24_PA_MAX.
-  write_register(RF_SETUP,   RF_SETUP | 0b 00000ef00);
-
+  switch (level) {
+  case RF24_PA_MIN:
+    write_register(RF_SETUP,   RF_SETUP & 0b11111001);
+    break;
+  }
+  case RF24_PA_LOW:
+    write_register(RF_SETUP,   RF_SETUP & 0b11111001 | 0b00000010);
+    break;
+  case RF24_PA_HIGH:
+    write_register(RF_SETUP,   RF_SETUP & 0b11111001 | 0b00000100);
+    break;
+  case RF24_PA_MAX: 
+    write_register(RF_SETUP,   RF_SETUP & 0b11111001 | 0b00000110);
+    break;
+  }    
   // TODO: END HERE
 }
 
@@ -90,8 +103,17 @@ void RF24::setCRCLength(rf24_crclength_e length)
     // TODO: START HERE
     // Set the EN_CRC and CRC0 bits in the CONFIG register based on the length parameter.
     // length can either be RF24_CRC_DIABLED, RF24_CRC_8, or RF24_CRC_16.
-  write_register(EN_CRC, length);
-  write_register(CRCO, length);
+  switch (length) {
+  case RF24_CRC_DISABLED: 
+    write_register(CONFIG, CONFIG & 0b11110111);
+    break;
+  case RF24_CRC_8: 
+    write_register(CONFIG, CONFIG & 0b11110011 | 0b00001000);
+    break;
+  case RF24_CRC_16: 
+    write_register(CONFIG, CONFIG & 0b11110011 | 0b00001100);
+    break;
+  }
     // TODO: END HERE
 }
 
@@ -100,7 +122,7 @@ void RF24::setRetries(uint8_t delay, uint8_t count)
 {
     // TODO: START HERE
     // Set the delay and count bits in the SETUP_RETR register.
-  write_register(SETUP_RETR, dealy);
+  write_register(SETUP_RETR, delay << 4 | count);
     // TODO: END HERE
 }
 
