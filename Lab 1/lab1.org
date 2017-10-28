@@ -15,7 +15,6 @@
     - Part D: Implementing Wireless Space Team
    *NOTE*: We need to go to Thomas for every checkpoints and he will ask questions to each of the team members, so be prepared guys~
 
-
 * write_register and read_register
   - Use digitalWrite function and the Arduino SPI library
     + SPI.beginTransaction: 
@@ -31,7 +30,6 @@
 
       
     
-  
 * Radio Module
   |-------+------+--------+--------+-------+------+--------|
   | GND   | VCC  |     CE |    CSN |   SCK | MOSI |   MISO |
