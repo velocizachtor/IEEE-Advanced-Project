@@ -14,7 +14,8 @@ void loop() {
   radio.startListening();
   int data[31];
   if (radio.available()) {
-    radio.read(&data,sizeof(data));
+    data = radio.read(&data,sizeof(data));
+  } 
     radio.stopListening();
   }   
 }

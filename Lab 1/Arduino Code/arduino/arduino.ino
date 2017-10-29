@@ -17,9 +17,12 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   radio.startListening();
-  int data[31];
+  int data[32];
   if (radio.available()) {
     radio.read(&data,sizeof(data));
+    for (int i = 0; i < 32; i++) {
+      Serial.print(data[i]);
+    }    
     radio.stopListening();
   }   
 }
