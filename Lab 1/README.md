@@ -2,13 +2,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-27 Fri&gt;</span></span></a></li>
-<li><a href="#sec-2">2. Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-26 Thu&gt;</span></span></a></li>
+<li><a href="#sec-1">1. Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-28 Sat&gt;</span></span></a></li>
+<li><a href="#sec-2">2. Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-27 Fri&gt;</span></span></a></li>
+<li><a href="#sec-3">3. Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-26 Thu&gt;</span></span></a></li>
 </ul>
 </div>
 </div>
 
-# Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-27 Fri&gt;</span></span><a id="sec-1" name="sec-1"></a>
+# Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-28 Sat&gt;</span></span><a id="sec-1" name="sec-1"></a>
+
+-   [X] Part B: First group to finish this, good job team!!!
+-   [ ] Part C: Writing code in Arduino for the Radio Module(s)
+    I and Jose already figured out how to test the wireless communication, what's left is debugging.
+-   [ ] Part D: Writing code in Arduino for the game
+
+# Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-27 Fri&gt;</span></span><a id="sec-2" name="sec-2"></a>
 
 **NOTE** We need to all be there for the checkpoints   
   **Checked = Done; Unchecked = To be Done**
@@ -18,7 +26,7 @@
 -   [ ] Part C: Writing code in Arduino for the Radio Module(s)
 -   [ ] Part D: Writing code in Arduino for the game
 
-# Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-26 Thu&gt;</span></span><a id="sec-2" name="sec-2"></a>
+# Update <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-26 Thu&gt;</span></span><a id="sec-3" name="sec-3"></a>
 
 What we’ve done today:
 -   Headers Soldering on Arduino and Teensy
