@@ -1,6 +1,11 @@
+#include <printf.h>
+#include <nRF24L01.h>
+#include <RF24_config.h>
+#include <RF24.h>
+
+RF24 radio(9,10);
 void setup() {
-  // put your setup code here, to run once:
-  RF24::RF24(9,10) radio;
+  // put your setup code here, to run once: 
   radio.begin();
   radio.setChannel(16);
   radio.setPALevel(RF24_PA_MIN);

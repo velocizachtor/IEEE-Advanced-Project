@@ -105,13 +105,13 @@ void RF24::setCRCLength(rf24_crclength_e length)
     // length can either be RF24_CRC_DIABLED, RF24_CRC_8, or RF24_CRC_16.
   switch (length) {
   case RF24_CRC_DISABLED: 
-    write_register(CONFIG, read_register(CONFIG) & 0b11110111);
+    write_register(NRF_CONFIG, read_register(NRF_CONFIG) & 0b11110111);
     break;
   case RF24_CRC_8: 
-    write_register(CONFIG, (read_register(CONFIG) & 0b11110011) | 0b00001000);
+    write_register(NRF_CONFIG, (read_register(NRF_CONFIG) & 0b11110011) | 0b00001000);
     break;
   case RF24_CRC_16: 
-    write_register(CONFIG, (read_register(CONFIG) & 0b11110011) | 0b00001100);
+    write_register(NRF_CONFIG, (read_register(NRF_CONFIG) & 0b11110011) | 0b00001100);
     break;
   }
     // TODO: END HERE
