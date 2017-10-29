@@ -12,7 +12,8 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   radio.startListening();
-  if(radio.available()) {
+  int data[31];
+  if (radio.available()) {
     radio.read(&data,sizeof(data));
     radio.stopListening();
   }   

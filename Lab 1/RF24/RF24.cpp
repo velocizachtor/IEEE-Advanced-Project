@@ -83,7 +83,6 @@ void RF24::setPALevel(uint8_t level)
   case RF24_PA_MIN:
     write_register(RF_SETUP, read_register(RF_SETUP) & 0b11111001);
     break;
-  }
   case RF24_PA_LOW:
     write_register(RF_SETUP, (read_register(RF_SETUP) & 0b11111001) | 0b00000010);
     break;
@@ -93,7 +92,7 @@ void RF24::setPALevel(uint8_t level)
   case RF24_PA_MAX: 
     write_register(RF_SETUP, (read_register(RF_SETUP) & 0b11111001) | 0b00000110);
     break;
-  }    
+}    
   // TODO: END HERE
 }
 
