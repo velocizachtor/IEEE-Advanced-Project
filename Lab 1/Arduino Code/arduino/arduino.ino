@@ -6,6 +6,7 @@
 RF24 radio(9,10);
 void setup() {
   // put your setup code here, to run once: 
+  Serial.begin(9600);
   radio.begin();
   radio.setChannel(16);
   radio.setPALevel(RF24_PA_MIN);
@@ -17,7 +18,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   radio.startListening();
-  int data[32];
+  char data[32];
   if (radio.available()) {
     radio.read(&data,sizeof(data));
     for (int i = 0; i < 32; i++) {
