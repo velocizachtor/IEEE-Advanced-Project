@@ -21,7 +21,7 @@ uint8_t RF24::read_register(uint8_t reg, uint8_t* buf, uint8_t len)
   // Only use DigitalWrite and the Arduino SPI library when implementing this function.
   // The global variable csn_pin can be used to access the SS pin.
   // The status variable should be set to the status byte returned by the command (explained in the datasheet).
-  SPI.beginTransaction(SPISettings(5000000, MSBFIRSTn, SPI_MODE0));
+  SPI.beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE0));
   digitalWrite(csn_pin, LOW);
   status = SPI.transfer(reg);
   for (int i = 0; i < len; i++) {
@@ -46,7 +46,7 @@ uint8_t RF24::write_register(uint8_t reg, const uint8_t* buf, uint8_t len)
   // The status variable should be set to the status byte returned by the command (explained in the datasheet).
   SPI.beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE0));
   digitalWrite(csn_pin, LOW);
-  reg = reg | 0x00100000;
+  reg = reg | 0b00100000;
   status = SPI.transfer(reg);
   for (int i = 0; i < len; i++) {
     SPI.transfer(buf[i]);
@@ -79,18 +79,19 @@ void RF24::setPALevel(uint8_t level)
   // set the power level bits in the RF_SETUP register based on the level parameter.
   // level can be RF24_PA_MIN, RF24_PA_LOW, RF24_PA_HIGH, or RF24_PA_MAX.
   switch (level) {
+
   case RF24_PA_MIN:
-    write_register(RF_SETUP,   RF_SETUP & 0b11111001);
+    write_register(RF_SETUP, read_register(RF_SETUP) & 0b11111001);
     break;
   }
   case RF24_PA_LOW:
-    write_register(RF_SETUP,   RF_SETUP & 0b11111001 | 0b00000010);
+    write_register(RF_SETUP, (read_register(RF_SETUP) & 0b11111001) | 0b00000010);
     break;
   case RF24_PA_HIGH:
-    write_register(RF_SETUP,   RF_SETUP & 0b11111001 | 0b00000100);
+    write_register(RF_SETUP, (read_register(RF_SETUP) & 0b11111001) | 0b00000100);
     break;
   case RF24_PA_MAX: 
-    write_register(RF_SETUP,   RF_SETUP & 0b11111001 | 0b00000110);
+    write_register(RF_SETUP, (read_register(RF_SETUP) & 0b11111001) | 0b00000110);
     break;
   }    
   // TODO: END HERE
@@ -105,13 +106,13 @@ void RF24::setCRCLength(rf24_crclength_e length)
     // length can either be RF24_CRC_DIABLED, RF24_CRC_8, or RF24_CRC_16.
   switch (length) {
   case RF24_CRC_DISABLED: 
-    write_register(CONFIG, CONFIG & 0b11110111);
+    write_register(CONFIG, read_register(CONFIG) & 0b11110111);
     break;
   case RF24_CRC_8: 
-    write_register(CONFIG, CONFIG & 0b11110011 | 0b00001000);
+    write_register(CONFIG, (read_register(CONFIG) & 0b11110011) | 0b00001000);
     break;
   case RF24_CRC_16: 
-    write_register(CONFIG, CONFIG & 0b11110011 | 0b00001100);
+    write_register(CONFIG, (read_register(CONFIG) & 0b11110011) | 0b00001100);
     break;
   }
     // TODO: END HERE
