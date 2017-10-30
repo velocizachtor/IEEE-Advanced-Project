@@ -46,7 +46,7 @@ uint8_t RF24::write_register(uint8_t reg, const uint8_t* buf, uint8_t len)
   // The status variable should be set to the status byte returned by the command (explained in the datasheet).
   SPI.beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE0));
   digitalWrite(csn_pin, LOW);
-  reg = reg | 0b00100000;
+  reg = reg | 0x20;		// 0b00100000
   status = SPI.transfer(reg);
   for (int i = 0; i < len; i++) {
     SPI.transfer(buf[i]);
@@ -64,9 +64,9 @@ void RF24::setAutoAck(bool enable)
     // TODO: START HERE
     // This function either enables all of the AA bits or disables all of the AA bits in the Enable AutoAck register.
   if (enable) {
-    write_register(EN_AA, 0b00111111);
+    write_register(EN_AA, 0x3F); // 0b00111111
   } else {
-    write_register(EN_AA, 0b00000000);
+    write_register(EN_AA, 0x00); // 0b00000000
   }
     // TODO: END HERE
 }
@@ -81,16 +81,16 @@ void RF24::setPALevel(uint8_t level)
   switch (level) {
 
   case RF24_PA_MIN:
-    write_register(RF_SETUP, read_register(RF_SETUP) & 0b11111001);
+    write_register(RF_SETUP, read_register(RF_SETUP) & 0xF9); // 0b11111001
     break;
   case RF24_PA_LOW:
-    write_register(RF_SETUP, (read_register(RF_SETUP) & 0b11111001) | 0b00000010);
+    write_register(RF_SETUP, (read_register(RF_SETUP) & 0xF9) | 0x02); // 0b00000010
     break;
   case RF24_PA_HIGH:
-    write_register(RF_SETUP, (read_register(RF_SETUP) & 0b11111001) | 0b00000100);
+    write_register(RF_SETUP, (read_register(RF_SETUP) & 0xF9) | 0x04); // 0b00000100
     break;
   case RF24_PA_MAX: 
-    write_register(RF_SETUP, (read_register(RF_SETUP) & 0b11111001) | 0b00000110);
+    write_register(RF_SETUP, (read_register(RF_SETUP) & 0xF9) | 0x06); // 0b00000110
     break;
 }    
   // TODO: END HERE
@@ -105,13 +105,13 @@ void RF24::setCRCLength(rf24_crclength_e length)
     // length can either be RF24_CRC_DIABLED, RF24_CRC_8, or RF24_CRC_16.
   switch (length) {
   case RF24_CRC_DISABLED: 
-    write_register(NRF_CONFIG, read_register(NRF_CONFIG) & 0b11110111);
+    write_register(NRF_CONFIG, read_register(NRF_CONFIG) & 0xF7); // 0b11110111
     break;
   case RF24_CRC_8: 
-    write_register(NRF_CONFIG, (read_register(NRF_CONFIG) & 0b11110011) | 0b00001000);
+    write_register(NRF_CONFIG, (read_register(NRF_CONFIG) & 0xF7) | 0x08); // 0b00001000
     break;
   case RF24_CRC_16: 
-    write_register(NRF_CONFIG, (read_register(NRF_CONFIG) & 0b11110011) | 0b00001100);
+    write_register(NRF_CONFIG, (read_register(NRF_CONFIG) & 0xF7) | 0x0C); // 0b00001100
     break;
   }
     // TODO: END HERE
