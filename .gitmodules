@@ -1,0 +1,3 @@
+[submodule "Lab1/RF_Example_Library"]
+	path = Lab 1/RF_Example_Library
+	url = https://github.com/nRF24/RF24
