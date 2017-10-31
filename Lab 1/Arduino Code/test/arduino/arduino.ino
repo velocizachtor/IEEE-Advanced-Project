@@ -10,25 +10,18 @@ void setup() {
   radio.begin();
   radio.setChannel(16);
   radio.setPALevel(RF24_PA_MIN);
-  radio.openReadingPipe(1, 0xC2C2C2C2C2);
-  radio.openWritingPipe(0xE7E7E7E7E7);
+  radio.openReadingPipe(1, 0xC2C2C2C2);
+  radio.openWritingPipe(0xE7E7E7E7);
   radio.setCRCLength(RF24_CRC_16);  
-  printf_begin();
-  radio.printDetails();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   radio.startListening();
-  unsigned long data;
+  char data;
   if (radio.available()) {
-    while (radio.available()) {                                   // While there is data ready
-        radio.read( &data, sizeof(unsigned long) );             // Get the payload
-      }
-     
     radio.read(&data, 1);
     radio.stopListening();
-    Serial.print("data");
+    Serial.print(data);
   }   
 }
-
